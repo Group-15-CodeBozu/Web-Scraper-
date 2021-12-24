@@ -32,11 +32,13 @@ object = soup.find(id="content")
 items = object.find_all(class_="infobox vcard")
 final = items[0]
 print(final.prettify())
-
-#The present code does NOT include the conversion to a .csv file. Please add it.
-
-
-
-
-
+#conversion to .csv
+import pandas as pd
+nme = ["Donald Trump"] 
+bday = ["June 14, 1946 (age 75)"]
+bplace = ["Queens, New York City, U.S."]
+prty = ["Republican Party"]
+dict = {'Name': nme, 'Date of Birth and Age': bday, 'Born In': bplace, 'Political Affiliation':prty}        
+df = pd.DataFrame(dict) 
+df.to_csv('DonaldTrumpBio.csv') 
  
