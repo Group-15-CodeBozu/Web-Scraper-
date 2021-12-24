@@ -1,0 +1,42 @@
+#****First part of deliverable 1*****
+
+#=================getting the response code=================
+
+import requests
+
+response = requests.get(
+	url="https://en.wikipedia.org/wiki/Donald_Trump",
+)
+print(response.status_code)
+
+#=================printing the page title=================
+
+import requests
+from bs4 import BeautifulSoup
+
+response = requests.get(
+	url="https://en.wikipedia.org/wiki/Donald_Trump",
+)
+soup = BeautifulSoup(response.content, 'html.parser')
+
+title = soup.find(id="firstHeading")
+print(title.string)
+
+#=================extracting data from card=================
+
+from bs4 import BeautifulSoup
+import requests
+page = requests.get("https://en.wikipedia.org/wiki/Donald_Trump")
+soup = BeautifulSoup(page.content, 'html.parser')
+object = soup.find(id="content")
+items = object.find_all(class_="infobox vcard")
+final = items[0]
+print(final.prettify())
+
+#The present code does NOT include the conversion to a .csv file. Please add it.
+
+
+
+
+
+ 
