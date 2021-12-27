@@ -9,6 +9,7 @@ object = soup.find(id="content")
 items = object.find_all(class_="infobox vcard")
 final = items[0]
 print(final.prettify())
+
 #Alben W. Barkley
 page = requests.get("https://en.wikipedia.org/wiki/Alben_W._Barkley")
 soup = BeautifulSoup(page.content, 'html.parser')
